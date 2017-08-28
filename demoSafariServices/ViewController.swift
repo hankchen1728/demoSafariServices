@@ -37,10 +37,14 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate{
         }
         let url = URL(string: "https://www.google.com.tw/search?q="+searchString!)
         let svc = SFSafariViewController(url: url!)
+        self.safariViewControllerDidFinish(controller: svc)
         svc.delegate = self
         self.present(svc, animated: true, completion: nil)
     }
-    
+    private func safariViewControllerDidFinish(controller: SFSafariViewController)
+    {
+        controller.dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
